@@ -6,6 +6,10 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CDDB02F8305C29CD0026AC6E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CDDB02F7305C29C80026AC6E /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		CDDB02DD305C25A60026AC6E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		CDDB02CD305C25A50026AC6E /* messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDB02DC305C25A60026AC6E /* messengerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = messengerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDB02E6305C25A60026AC6E /* messengerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = messengerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDDB02F7305C29C80026AC6E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -72,6 +77,7 @@
 				CDDB02CF305C25A50026AC6E /* messenger */,
 				CDDB02DF305C25A60026AC6E /* messengerTests */,
 				CDDB02E9305C25A60026AC6E /* messengerUITests */,
+				CDDB02F7305C29C80026AC6E /* README.md */,
 				CDDB02CE305C25A50026AC6E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -197,6 +203,7 @@
 		CDDB02CB305C25A50026AC6E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
+				CDDB02F8305C29CD0026AC6E /* README.md in Resources */,
 			);
 		};
 		CDDB02DA305C25A60026AC6E /* Resources */ = {
