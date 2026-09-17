@@ -22,7 +22,7 @@ enum ConversationError: Error {
     case messageNotFound
 }
 
-struct Message {
+struct Message: Identifiable {
     let id: Int
     var text: String
     let sender: Sender
