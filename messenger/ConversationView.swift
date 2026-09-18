@@ -43,9 +43,11 @@ struct ConversationView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                List(conversation.messages) { message in
+                List(conversation.messages.reversed()) { message in
                     MessageBubbleView(message: message)
+                        .scaleEffect(x: 1, y: -1, anchor: .center)
                 }
+                .scaleEffect(x: 1, y: -1, anchor: .center)
                 HStack {
                     TextField("Enter your message..", text: $messageInput)
                         .padding(10)
@@ -64,14 +66,15 @@ struct ConversationView: View {
                 }
                 .padding(.horizontal, 20)
                 .padding(.vertical, 10)
-                .navigationTitle("\(conversation.title)")
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        NavigationLink {
-                            ConversationDetailView(conversation: conversation)
-                        } label: {
-                            Image(systemName: "info.circle")
-                        }
+            }
+            .navigationTitle("\(conversation.title)")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        ConversationDetailView(conversation: conversation)
+                    } label: {
+                        Image(systemName: "info.circle")
                     }
                 }
             }
