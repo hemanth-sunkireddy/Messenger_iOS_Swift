@@ -64,13 +64,19 @@ struct ConversationContentView: View {
                 .listRowSeparator(.hidden)
             }
             HStack {
-                TextField("Enter your Message..", text: $messageInput)
+                TextField("Enter your message..", text: $messageInput)
+                    .padding(10)
+                    .background(Color(.systemGray6))
+                    
                 Button(action: sendMessage) {
                     Image(systemName: "paperplane.fill")
+                        .resizable()
+                        .frame(width: 25, height: 25)
                 }
                 .disabled(messageInput.isEmpty)
             }
-            .padding(10)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 10)
         }
     }
 
