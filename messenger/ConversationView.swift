@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-struct ConversationContentView: View {
+struct ConversationView: View {
     @State private var messageInput: String = ""
     @State var conversation: Conversation
 
     init() {
-
         var initial = Conversation(
             id: 1,
             title: "First Conversation",
@@ -50,33 +49,44 @@ struct ConversationContentView: View {
     }
 
     var body: some View {
-        VStack {
-            Text("\(conversation.title)")
-            List(conversation.messages) { message in
-                VStack {
-                    Text("\(message.text)")
-                        .frame(
-                            maxWidth: .infinity,
-                            alignment: message.sender == .user
-                                ? .trailing : .leading
-                        )
+        NavigationStack {
+            VStack {
+                List(conversation.messages) { message in
+                    VStack {
+                        Text("\(message.text)")
+                            .frame(
+                                maxWidth: .infinity,
+                                alignment: message.sender == .user
+                                    ? .trailing : .leading
+                            )
+                    }
+                    .listRowSeparator(.hidden)
                 }
-                .listRowSeparator(.hidden)
-            }
-            HStack {
-                TextField("Enter your message..", text: $messageInput)
-                    .padding(10)
-                    .background(Color(.systemGray6))
-                    
-                Button(action: sendMessage) {
-                    Image(systemName: "paperplane.fill")
-                        .resizable()
-                        .frame(width: 25, height: 25)
+                HStack {
+                    TextField("Enter your message..", text: $messageInput)
+                        .padding(10)
+                        .background(Color(.systemGray6))
+
+                    Button(action: sendMessage) {
+                        Image(systemName: "paperplane.fill")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                    }
+                    .disabled(messageInput.isEmpty)
                 }
-                .disabled(messageInput.isEmpty)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 10)
+                .navigationTitle("\(conversation.title)")
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationLink {
+                            ConversationDetailView()
+                        } label: {
+                            Image(systemName: "info.circle")
+                        }
+                    }
+                }
             }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 10)
         }
     }
 
@@ -95,5 +105,5 @@ struct ConversationContentView: View {
 }
 
 #Preview {
-    ConversationContentView()
+    ConversationView()
 }
