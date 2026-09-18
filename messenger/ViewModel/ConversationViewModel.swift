@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
 
 @Observable
 class ConversationViewModel {
     var conversation: Conversation
-    
+
     init() {
         conversation = Conversation(
             id: 1,
@@ -37,7 +38,7 @@ class ConversationViewModel {
         conversation.addMessage(message: messsage1)
         conversation.addMessage(message: message2)
     }
-    
+
     func sendMessage(messageInput: String) {
         guard !messageInput.isEmpty else { return }
         let newMsg = Message(
@@ -56,5 +57,17 @@ class ConversationViewModel {
             deliveryStatus: .sent
         )
         conversation.addMessage(message: botMsg)
+    }
+
+    @ViewBuilder
+    func destinationView(for route: Route) -> some View {
+        switch route {
+        case .detail(let item):
+            ConversationDetailView(
+                conversation: item
+            )
+        case .chat:
+            ConversationView()
+        }
     }
 }

@@ -22,7 +22,7 @@ enum ConversationError: Error {
     case messageNotFound
 }
 
-struct Message: Identifiable {
+struct Message: Identifiable, Equatable, Hashable {
     let id: Int
     var text: String
     let sender: Sender
@@ -30,7 +30,7 @@ struct Message: Identifiable {
     var deliveryStatus: Status
 }
 
-struct Conversation {
+struct Conversation: Hashable {
     let id: Int
     var title: String
     var messages: [Message]

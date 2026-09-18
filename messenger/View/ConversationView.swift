@@ -10,9 +10,10 @@ import SwiftUI
 struct ConversationView: View {
     @State private var messageInput: String = ""
     @State var viewModel = ConversationViewModel()
+    @State var path = NavigationPath()
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             VStack {
                 List(viewModel.conversation.messages.reversed()) { message in
                     MessageBubbleView(message: message)
@@ -44,14 +45,17 @@ struct ConversationView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink {
-                        ConversationDetailView(
-                            conversation: viewModel.conversation
+                    Button {
+                        path.append(
+                            Route.detail(conversation: viewModel.conversation)
                         )
                     } label: {
                         Image(systemName: "info.circle")
                     }
                 }
+            }
+            .navigationDestination(for: Route.self) { route in
+                viewModel.destinationView(for: route)
             }
         }
     }
