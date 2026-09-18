@@ -14,7 +14,7 @@ struct ConversationView: View {
     init() {
         var initial = Conversation(
             id: 1,
-            title: "First Conversation",
+            title: "Assistant Bot",
             messages: [],
             lastUpdated: Date()
         )
@@ -33,17 +33,9 @@ struct ConversationView: View {
             createdAt: Date(),
             deliveryStatus: .sending
         )
-        let message3 = Message(
-            id: 3,
-            text: "I need some assistance with my account.",
-            sender: .user,
-            createdAt: Date(),
-            deliveryStatus: .failed
-        )
-
+        
         initial.addMessage(message: messsage1)
         initial.addMessage(message: message2)
-        initial.addMessage(message: message3)
 
         _conversation = State(initialValue: initial)
     }
@@ -52,15 +44,34 @@ struct ConversationView: View {
         NavigationStack {
             VStack {
                 List(conversation.messages) { message in
-                    VStack {
+                    VStack(alignment: message.sender == .user ? .trailing : .leading) {
                         Text("\(message.text)")
-                            .frame(
-                                maxWidth: .infinity,
-                                alignment: message.sender == .user
-                                    ? .trailing : .leading
+                            .foregroundColor(
+                                message.sender == .user
+                                    ? Color.white : Color.black
                             )
+                            .padding(8)
+                            .background(
+                                message.sender == .user
+                                    ? Color.blue : Color(.systemGray5)
+                            )
+                            .cornerRadius(12)
+                        Text(
+                            message.createdAt.formatted(
+                                date: .omitted,
+                                time: .shortened
+                            )
+                        )
+                        .font(.caption)
+                        .foregroundColor(.gray)
                     }
                     .listRowSeparator(.hidden)
+                    .listRowBackground(Color.clear)
+                    .frame(
+                        maxWidth: .infinity,
+                        alignment: message.sender == .user
+                            ? .trailing : .leading
+                    )
                 }
                 HStack {
                     TextField("Enter your message..", text: $messageInput)
@@ -80,7 +91,7 @@ struct ConversationView: View {
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         NavigationLink {
-                            ConversationDetailView()
+                            ConversationDetailView(conversation: conversation)
                         } label: {
                             Image(systemName: "info.circle")
                         }
@@ -100,6 +111,14 @@ struct ConversationView: View {
             deliveryStatus: .sent
         )
         conversation.addMessage(message: newMsg)
+        let botMsg = Message(
+            id: conversation.messages.count + 1,
+            text: "This is a Hardcoded response.",
+            sender: .assistant,
+            createdAt: Date(),
+            deliveryStatus: .sent
+        )
+        conversation.addMessage(message: botMsg)
         messageInput = ""
     }
 }

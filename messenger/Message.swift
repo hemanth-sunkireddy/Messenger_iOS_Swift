@@ -50,6 +50,10 @@ struct Conversation {
         }
     }
 
+    func messageCount() -> Int {
+        return messages.count
+    }
+
     func sortedByDate() -> [Message] {
         return messages.sorted { firstMessage, secondMessage in
             return firstMessage.createdAt < secondMessage.createdAt
@@ -57,7 +61,9 @@ struct Conversation {
     }
 
     func findMessage(by id: Int) throws -> Message {
-        guard let message = messages.first(where: { message in message.id == id }) else {
+        guard
+            let message = messages.first(where: { message in message.id == id })
+        else {
             throw ConversationError.messageNotFound
         }
         return message
