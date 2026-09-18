@@ -33,7 +33,7 @@ struct ConversationView: View {
             createdAt: Date(),
             deliveryStatus: .sending
         )
-        
+
         initial.addMessage(message: messsage1)
         initial.addMessage(message: message2)
 
@@ -44,34 +44,7 @@ struct ConversationView: View {
         NavigationStack {
             VStack {
                 List(conversation.messages) { message in
-                    VStack(alignment: message.sender == .user ? .trailing : .leading) {
-                        Text("\(message.text)")
-                            .foregroundColor(
-                                message.sender == .user
-                                    ? Color.white : Color.black
-                            )
-                            .padding(8)
-                            .background(
-                                message.sender == .user
-                                    ? Color.blue : Color(.systemGray5)
-                            )
-                            .cornerRadius(12)
-                        Text(
-                            message.createdAt.formatted(
-                                date: .omitted,
-                                time: .shortened
-                            )
-                        )
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                    }
-                    .listRowSeparator(.hidden)
-                    .listRowBackground(Color.clear)
-                    .frame(
-                        maxWidth: .infinity,
-                        alignment: message.sender == .user
-                            ? .trailing : .leading
-                    )
+                    MessageBubbleView(message: message)
                 }
                 HStack {
                     TextField("Enter your message..", text: $messageInput)
@@ -83,7 +56,11 @@ struct ConversationView: View {
                             .resizable()
                             .frame(width: 25, height: 25)
                     }
-                    .disabled(messageInput.isEmpty)
+                    .disabled(
+                        messageInput.trimmingCharacters(
+                            in: .whitespacesAndNewlines
+                        ).isEmpty
+                    )
                 }
                 .padding(.horizontal, 20)
                 .padding(.vertical, 10)
