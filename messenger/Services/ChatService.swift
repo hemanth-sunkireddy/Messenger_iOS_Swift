@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ChatService {
+class HardCodedChatService: ChatServiceProtocol {
     func getInitialMessage() -> Message {
         return Message(
             id: UUID(),

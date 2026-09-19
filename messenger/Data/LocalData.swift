@@ -13,11 +13,3 @@ var conversationData = Conversation(
     messages: [],
     lastUpdated: Date()
 )
-
-let messsage1 = Message(
-    id: UUID(),
-    text: "Hello! How can I help you",
-    sender: .assistant,
-    createdAt: Date(),
-    deliveryStatus: .sent
-)

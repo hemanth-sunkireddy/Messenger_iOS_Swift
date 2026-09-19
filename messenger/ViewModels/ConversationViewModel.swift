@@ -11,9 +11,11 @@ import SwiftUI
 @Observable
 class ConversationViewModel {
     var conversation: Conversation = conversationData
-    private let chatService = ChatService()
+    private let chatService: ChatServiceProtocol
 
-    init() {
+    init(chatService: ChatServiceProtocol = HardCodedChatService()) {
+        self.chatService = chatService
+
         let initialMsg = chatService.getInitialMessage()
         conversation.messages.append(initialMsg)
     }
@@ -31,17 +33,5 @@ class ConversationViewModel {
 
         let botMsg = chatService.getBotResponse()
         conversation.addMessage(message: botMsg)
-    }
-
-    @ViewBuilder
-    func destinationView(for route: Route) -> some View {
-        switch route {
-        case .detail(let item):
-            ConversationDetailView(
-                conversation: item
-            )
-        case .chat:
-            ConversationView()
-        }
     }
 }

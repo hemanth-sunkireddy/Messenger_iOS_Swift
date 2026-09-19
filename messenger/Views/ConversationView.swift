@@ -9,18 +9,19 @@ import SwiftUI
 
 struct ConversationView: View {
     @State private var messageInput: String = ""
-    @State var viewModel = ConversationViewModel()
+    @State var chatViewModel = ConversationViewModel()
+    @State var navigationViewModel = NavigationViewModel()
     @State var path = NavigationPath()
 
     var body: some View {
         NavigationStack(path: $path) {
             VStack {
                 ScrollViewReader { proxy in
-                    List(viewModel.conversation.messages) { message in
+                    List(chatViewModel.conversation.messages) { message in
                         MessageBubbleView(message: message)
                     }
-                    .onChange(of: viewModel.conversation.messages.count) {
-                        if let lastMessage = viewModel.conversation.messages
+                    .onChange(of: chatViewModel.conversation.messages.count) {
+                        if let lastMessage = chatViewModel.conversation.messages
                             .last
                         {
                             withAnimation {
@@ -34,7 +35,7 @@ struct ConversationView: View {
                             .background(Color(.systemGray6))
 
                         Button(action: {
-                            viewModel.sendMessage(messageInput: messageInput)
+                            chatViewModel.sendMessage(messageInput: messageInput)
                             messageInput = ""
                         }) {
                             Image(systemName: "paperplane.fill")
@@ -50,14 +51,12 @@ struct ConversationView: View {
                     .padding(.horizontal, 20)
                     .padding(.vertical, 10)
                 }
-                .navigationTitle("\(viewModel.conversation.title)")
+                .navigationTitle("\(chatViewModel.conversation.title)")
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
                             path.append(
-                                Route.detail(
-                                    conversation: viewModel.conversation
-                                )
+                                Route.detail(chatViewModel.conversation)
                             )
                         } label: {
                             Image(systemName: "info.circle")
@@ -65,7 +64,7 @@ struct ConversationView: View {
                     }
                 }
                 .navigationDestination(for: Route.self) { route in
-                    viewModel.destinationView(for: route)
+                    navigationViewModel.destinationView(for: route)
                 }
             }
         }
