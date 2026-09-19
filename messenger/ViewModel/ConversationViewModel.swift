@@ -11,9 +11,11 @@ import SwiftUI
 @Observable
 class ConversationViewModel {
     var conversation: Conversation = conversationData
-    var botMessage: Message = messsage1
+    private let chatService = ChatService()
+
     init() {
-        conversation.messages.append(botMessage)
+        let initialMsg = chatService.getInitialMessage()
+        conversation.messages.append(initialMsg)
     }
 
     func sendMessage(messageInput: String) {
@@ -26,13 +28,8 @@ class ConversationViewModel {
             deliveryStatus: .sent
         )
         conversation.addMessage(message: newMsg)
-        let botMsg = Message(
-            id: UUID(),
-            text: "This is a Hardcoded response.",
-            sender: .assistant,
-            createdAt: Date(),
-            deliveryStatus: .sent
-        )
+
+        let botMsg = chatService.getBotResponse()
         conversation.addMessage(message: botMsg)
     }
 
