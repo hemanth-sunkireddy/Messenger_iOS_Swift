@@ -27,6 +27,7 @@ struct ConversationView: View {
 
                     Button(action: {
                         viewModel.sendMessage(messageInput: messageInput)
+                        messageInput = ""
                     }) {
                         Image(systemName: "paperplane.fill")
                             .resizable()
