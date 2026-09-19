@@ -8,14 +8,14 @@
 import Foundation
 
 var conversationData = Conversation(
-    id: 1,
+    id: UUID(),
     title: "Assistant Bot",
     messages: [],
     lastUpdated: Date()
 )
 
 let messsage1 = Message(
-    id: 1,
+    id: UUID(),
     text: "Hello! How can I help you",
     sender: .assistant,
     createdAt: Date(),

@@ -19,7 +19,7 @@ class ConversationViewModel {
     func sendMessage(messageInput: String) {
         guard !messageInput.isEmpty else { return }
         let newMsg = Message(
-            id: conversation.messages.count + 1,
+            id: UUID(),
             text: messageInput,
             sender: .user,
             createdAt: Date(),
@@ -27,7 +27,7 @@ class ConversationViewModel {
         )
         conversation.addMessage(message: newMsg)
         let botMsg = Message(
-            id: conversation.messages.count + 1,
+            id: UUID(),
             text: "This is a Hardcoded response.",
             sender: .assistant,
             createdAt: Date(),

@@ -23,7 +23,7 @@ enum ConversationError: Error {
 }
 
 struct Message: Identifiable, Equatable, Hashable {
-    let id: Int
+    let id: UUID
     var text: String
     let sender: Sender
     let createdAt: Date
@@ -31,7 +31,7 @@ struct Message: Identifiable, Equatable, Hashable {
 }
 
 struct Conversation: Hashable {
-    let id: Int
+    let id: UUID
     var title: String
     var messages: [Message]
     var lastUpdated: Date
@@ -60,7 +60,7 @@ struct Conversation: Hashable {
         }
     }
 
-    func findMessage(by id: Int) throws -> Message {
+    func findMessage(by id: UUID) throws -> Message {
         guard
             let message = messages.first(where: { message in message.id == id })
         else {

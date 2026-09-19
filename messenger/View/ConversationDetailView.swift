@@ -29,22 +29,15 @@ struct ConversationDetailView: View {
 
 #Preview {
     let conversation = Conversation(
-        id: 1,
+        id: UUID(),
         title: "First Conversation",
         messages: [
             Message(
-                id: 1,
+                id: UUID(),
                 text: "Hello!",
                 sender: .user,
                 createdAt: Date(),
                 deliveryStatus: .sent
-            ),
-            Message(
-                id: 2,
-                text: "Hi! How can I help you",
-                sender: .assistant,
-                createdAt: Date(),
-                deliveryStatus: .sending
             ),
         ],
         lastUpdated: Date()
