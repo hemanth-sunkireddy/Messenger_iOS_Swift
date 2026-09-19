@@ -10,10 +10,10 @@ import Testing
 
 struct messengerTests {
 
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
-        // Swift Testing Documentation
-        // https://developer.apple.com/documentation/testing
-    }
+    @Test("Initialization adds initial bot message")
+        func testInitialization() {
+            let viewModel = ConversationViewModel()
+            #expect(viewModel.conversation.messages.contains(where: { $0.id == viewModel.botMessage.id }))
+        }
 
 }
