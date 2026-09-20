@@ -11,14 +11,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CDDB02DD305C25A60026AC6E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CDDB02C5305C25A50026AC6E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CDDB02CC305C25A50026AC6E;
-			remoteInfo = messenger;
-		};
-		CDDB02E7305C25A60026AC6E /* PBXContainerItemProxy */ = {
+		CDFC60CB306040D70002B698 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CDDB02C5305C25A50026AC6E /* Project object */;
 			proxyType = 1;
@@ -29,10 +22,8 @@
 
 /* Begin PBXFileReference section */
 		CDDB02CD305C25A50026AC6E /* messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CDDB02DC305C25A60026AC6E /* messengerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = messengerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CDDB02E6305C25A60026AC6E /* messengerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = messengerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDB02F7305C29C80026AC6E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		CDFC6049306031E80002B698 /* messenger.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = messenger.xctestplan; sourceTree = "<group>"; };
+		CDFC60C7306040D70002B698 /* messengerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = messengerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -46,6 +37,11 @@
 			path = messengerTests;
 			sourceTree = "<group>";
 		};
+		CDFC60C8306040D70002B698 /* messengerTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = messengerTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +50,7 @@
 			files = (
 			);
 		};
-		CDDB02D9305C25A60026AC6E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			files = (
-			);
-		};
-		CDDB02E3305C25A60026AC6E /* Frameworks */ = {
+		CDFC60C4306040D70002B698 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
 			);
@@ -70,10 +61,10 @@
 		CDDB02C4305C25A50026AC6E = {
 			isa = PBXGroup;
 			children = (
-				CDFC6049306031E80002B698 /* messenger.xctestplan */,
 				CDDB02CF305C25A50026AC6E /* messenger */,
 				CDDB02DF305C25A60026AC6E /* messengerTests */,
 				CDDB02F7305C29C80026AC6E /* README.md */,
+				CDFC60C8306040D70002B698 /* messengerTests */,
 				CDDB02CE305C25A50026AC6E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,8 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				CDDB02CD305C25A50026AC6E /* messenger.app */,
-				CDDB02DC305C25A60026AC6E /* messengerTests.xctest */,
-				CDDB02E6305C25A60026AC6E /* messengerUITests.xctest */,
+				CDFC60C7306040D70002B698 /* messengerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,44 +99,26 @@
 			productReference = CDDB02CD305C25A50026AC6E /* messenger.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CDDB02DB305C25A60026AC6E /* messengerTests */ = {
+		CDFC60C6306040D70002B698 /* messengerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CDDB02F1305C25A70026AC6E /* Build configuration list for PBXNativeTarget "messengerTests" */;
+			buildConfigurationList = CDFC60CD306040D70002B698 /* Build configuration list for PBXNativeTarget "messengerTests" */;
 			buildPhases = (
-				CDDB02D8305C25A60026AC6E /* Sources */,
-				CDDB02D9305C25A60026AC6E /* Frameworks */,
-				CDDB02DA305C25A60026AC6E /* Resources */,
+				CDFC60C3306040D70002B698 /* Sources */,
+				CDFC60C4306040D70002B698 /* Frameworks */,
+				CDFC60C5306040D70002B698 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CDDB02DE305C25A60026AC6E /* PBXTargetDependency */,
+				CDFC60CC306040D70002B698 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				CDDB02DF305C25A60026AC6E /* messengerTests */,
+				CDFC60C8306040D70002B698 /* messengerTests */,
 			);
 			name = messengerTests;
 			productName = messengerTests;
-			productReference = CDDB02DC305C25A60026AC6E /* messengerTests.xctest */;
+			productReference = CDFC60C7306040D70002B698 /* messengerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		CDDB02E5305C25A60026AC6E /* messengerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CDDB02F4305C25A70026AC6E /* Build configuration list for PBXNativeTarget "messengerUITests" */;
-			buildPhases = (
-				CDDB02E2305C25A60026AC6E /* Sources */,
-				CDDB02E3305C25A60026AC6E /* Frameworks */,
-				CDDB02E4305C25A60026AC6E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CDDB02E8305C25A60026AC6E /* PBXTargetDependency */,
-			);
-			name = messengerUITests;
-			productName = messengerUITests;
-			productReference = CDDB02E6305C25A60026AC6E /* messengerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -161,11 +133,7 @@
 					CDDB02CC305C25A50026AC6E = {
 						CreatedOnToolsVersion = 27.0;
 					};
-					CDDB02DB305C25A60026AC6E = {
-						CreatedOnToolsVersion = 27.0;
-						TestTargetID = CDDB02CC305C25A50026AC6E;
-					};
-					CDDB02E5305C25A60026AC6E = {
+					CDFC60C6306040D70002B698 = {
 						CreatedOnToolsVersion = 27.0;
 						TestTargetID = CDDB02CC305C25A50026AC6E;
 					};
@@ -186,8 +154,7 @@
 			projectRoot = "";
 			targets = (
 				CDDB02CC305C25A50026AC6E /* messenger */,
-				CDDB02DB305C25A60026AC6E /* messengerTests */,
-				CDDB02E5305C25A60026AC6E /* messengerUITests */,
+				CDFC60C6306040D70002B698 /* messengerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -199,12 +166,7 @@
 				CDDB02F8305C29CD0026AC6E /* README.md in Resources */,
 			);
 		};
-		CDDB02DA305C25A60026AC6E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			files = (
-			);
-		};
-		CDDB02E4305C25A60026AC6E /* Resources */ = {
+		CDFC60C5306040D70002B698 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
 			);
@@ -217,12 +179,7 @@
 			files = (
 			);
 		};
-		CDDB02D8305C25A60026AC6E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			files = (
-			);
-		};
-		CDDB02E2305C25A60026AC6E /* Sources */ = {
+		CDFC60C3306040D70002B698 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
 			);
@@ -230,15 +187,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CDDB02DE305C25A60026AC6E /* PBXTargetDependency */ = {
+		CDFC60CC306040D70002B698 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CDDB02CC305C25A50026AC6E /* messenger */;
-			targetProxy = CDDB02DD305C25A60026AC6E /* PBXContainerItemProxy */;
-		};
-		CDDB02E8305C25A60026AC6E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CDDB02CC305C25A50026AC6E /* messenger */;
-			targetProxy = CDDB02E7305C25A60026AC6E /* PBXContainerItemProxy */;
+			targetProxy = CDFC60CB306040D70002B698 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -428,7 +380,7 @@
 			};
 			name = Release;
 		};
-		CDDB02F2305C25A70026AC6E /* Debug configuration for PBXNativeTarget "messengerTests" */ = {
+		CDFC60CE306040D70002B698 /* Debug configuration for PBXNativeTarget "messengerTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -436,7 +388,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A35UH8KPC8;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gotobootcamp.messengerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -450,7 +401,7 @@
 			};
 			name = Debug;
 		};
-		CDDB02F3305C25A70026AC6E /* Release configuration for PBXNativeTarget "messengerTests" */ = {
+		CDFC60CF306040D70002B698 /* Release configuration for PBXNativeTarget "messengerTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -458,7 +409,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A35UH8KPC8;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gotobootcamp.messengerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -469,46 +419,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/messenger.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/messenger";
-			};
-			name = Release;
-		};
-		CDDB02F5305C25A70026AC6E /* Debug configuration for PBXNativeTarget "messengerUITests" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = A35UH8KPC8;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gotobootcamp.messengerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = messenger;
-			};
-			name = Debug;
-		};
-		CDDB02F6305C25A70026AC6E /* Release configuration for PBXNativeTarget "messengerUITests" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = A35UH8KPC8;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gotobootcamp.messengerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = messenger;
 			};
 			name = Release;
 		};
@@ -531,19 +441,11 @@
 			);
 			defaultConfigurationName = Release;
 		};
-		CDDB02F1305C25A70026AC6E /* Build configuration list for PBXNativeTarget "messengerTests" */ = {
+		CDFC60CD306040D70002B698 /* Build configuration list for PBXNativeTarget "messengerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CDDB02F2305C25A70026AC6E /* Debug configuration for PBXNativeTarget "messengerTests" */,
-				CDDB02F3305C25A70026AC6E /* Release configuration for PBXNativeTarget "messengerTests" */,
-			);
-			defaultConfigurationName = Release;
-		};
-		CDDB02F4305C25A70026AC6E /* Build configuration list for PBXNativeTarget "messengerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CDDB02F5305C25A70026AC6E /* Debug configuration for PBXNativeTarget "messengerUITests" */,
-				CDDB02F6305C25A70026AC6E /* Release configuration for PBXNativeTarget "messengerUITests" */,
+				CDFC60CE306040D70002B698 /* Debug configuration for PBXNativeTarget "messengerTests" */,
+				CDFC60CF306040D70002B698 /* Release configuration for PBXNativeTarget "messengerTests" */,
 			);
 			defaultConfigurationName = Release;
 		};
