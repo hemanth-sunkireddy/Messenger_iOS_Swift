@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		CDDB02F8305C29CD0026AC6E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CDDB02F7305C29C80026AC6E /* README.md */; };
+		CDE5C8643060F4C700F55081 /* messenger.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = CDE5C8633060F4C700F55081 /* messenger.xctestplan */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CDFC60CB306040D70002B698 /* PBXContainerItemProxy */ = {
+		CDE5C86D3060F5E600F55081 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CDDB02C5305C25A50026AC6E /* Project object */;
 			proxyType = 1;
@@ -23,7 +24,8 @@
 /* Begin PBXFileReference section */
 		CDDB02CD305C25A50026AC6E /* messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDB02F7305C29C80026AC6E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		CDFC60C7306040D70002B698 /* messengerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = messengerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDE5C8633060F4C700F55081 /* messenger.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = messenger.xctestplan; sourceTree = "<group>"; };
+		CDE5C8693060F5E600F55081 /* messengerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = messengerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -33,6 +35,11 @@
 			sourceTree = "<group>";
 		};
 		CDDB02DF305C25A60026AC6E /* messengerTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = messengerTests;
+			sourceTree = "<group>";
+		};
+		CDE5C86A3060F5E600F55081 /* messengerTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = messengerTests;
 			sourceTree = "<group>";
@@ -50,7 +57,7 @@
 			files = (
 			);
 		};
-		CDFC60C4306040D70002B698 /* Frameworks */ = {
+		CDE5C8663060F5E600F55081 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
 			);
@@ -61,10 +68,12 @@
 		CDDB02C4305C25A50026AC6E = {
 			isa = PBXGroup;
 			children = (
+				CDE5C8633060F4C700F55081 /* messenger.xctestplan */,
 				CDDB02CF305C25A50026AC6E /* messenger */,
 				CDDB02DF305C25A60026AC6E /* messengerTests */,
 				CDDB02F7305C29C80026AC6E /* README.md */,
 				CDFC60C8306040D70002B698 /* messengerTests */,
+				CDE5C86A3060F5E600F55081 /* messengerTests */,
 				CDDB02CE305C25A50026AC6E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				CDDB02CD305C25A50026AC6E /* messenger.app */,
-				CDFC60C7306040D70002B698 /* messengerTests.xctest */,
+				CDE5C8693060F5E600F55081 /* messengerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,25 +108,25 @@
 			productReference = CDDB02CD305C25A50026AC6E /* messenger.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CDFC60C6306040D70002B698 /* messengerTests */ = {
+		CDE5C8683060F5E600F55081 /* messengerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CDFC60CD306040D70002B698 /* Build configuration list for PBXNativeTarget "messengerTests" */;
+			buildConfigurationList = CDE5C86F3060F5E600F55081 /* Build configuration list for PBXNativeTarget "messengerTests" */;
 			buildPhases = (
-				CDFC60C3306040D70002B698 /* Sources */,
-				CDFC60C4306040D70002B698 /* Frameworks */,
-				CDFC60C5306040D70002B698 /* Resources */,
+				CDE5C8653060F5E600F55081 /* Sources */,
+				CDE5C8663060F5E600F55081 /* Frameworks */,
+				CDE5C8673060F5E600F55081 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CDFC60CC306040D70002B698 /* PBXTargetDependency */,
+				CDE5C86E3060F5E600F55081 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				CDFC60C8306040D70002B698 /* messengerTests */,
+				CDE5C86A3060F5E600F55081 /* messengerTests */,
 			);
 			name = messengerTests;
 			productName = messengerTests;
-			productReference = CDFC60C7306040D70002B698 /* messengerTests.xctest */;
+			productReference = CDE5C8693060F5E600F55081 /* messengerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -133,7 +142,7 @@
 					CDDB02CC305C25A50026AC6E = {
 						CreatedOnToolsVersion = 27.0;
 					};
-					CDFC60C6306040D70002B698 = {
+					CDE5C8683060F5E600F55081 = {
 						CreatedOnToolsVersion = 27.0;
 						TestTargetID = CDDB02CC305C25A50026AC6E;
 					};
@@ -154,7 +163,7 @@
 			projectRoot = "";
 			targets = (
 				CDDB02CC305C25A50026AC6E /* messenger */,
-				CDFC60C6306040D70002B698 /* messengerTests */,
+				CDE5C8683060F5E600F55081 /* messengerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -163,10 +172,11 @@
 		CDDB02CB305C25A50026AC6E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
+				CDE5C8643060F4C700F55081 /* messenger.xctestplan in Resources */,
 				CDDB02F8305C29CD0026AC6E /* README.md in Resources */,
 			);
 		};
-		CDFC60C5306040D70002B698 /* Resources */ = {
+		CDE5C8673060F5E600F55081 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
 			);
@@ -179,7 +189,7 @@
 			files = (
 			);
 		};
-		CDFC60C3306040D70002B698 /* Sources */ = {
+		CDE5C8653060F5E600F55081 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
 			);
@@ -187,10 +197,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CDFC60CC306040D70002B698 /* PBXTargetDependency */ = {
+		CDE5C86E3060F5E600F55081 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CDDB02CC305C25A50026AC6E /* messenger */;
-			targetProxy = CDFC60CB306040D70002B698 /* PBXContainerItemProxy */;
+			targetProxy = CDE5C86D3060F5E600F55081 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -380,7 +390,7 @@
 			};
 			name = Release;
 		};
-		CDFC60CE306040D70002B698 /* Debug configuration for PBXNativeTarget "messengerTests" */ = {
+		CDE5C8703060F5E600F55081 /* Debug configuration for PBXNativeTarget "messengerTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -401,7 +411,7 @@
 			};
 			name = Debug;
 		};
-		CDFC60CF306040D70002B698 /* Release configuration for PBXNativeTarget "messengerTests" */ = {
+		CDE5C8713060F5E600F55081 /* Release configuration for PBXNativeTarget "messengerTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -441,11 +451,11 @@
 			);
 			defaultConfigurationName = Release;
 		};
-		CDFC60CD306040D70002B698 /* Build configuration list for PBXNativeTarget "messengerTests" */ = {
+		CDE5C86F3060F5E600F55081 /* Build configuration list for PBXNativeTarget "messengerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CDFC60CE306040D70002B698 /* Debug configuration for PBXNativeTarget "messengerTests" */,
-				CDFC60CF306040D70002B698 /* Release configuration for PBXNativeTarget "messengerTests" */,
+				CDE5C8703060F5E600F55081 /* Debug configuration for PBXNativeTarget "messengerTests" */,
+				CDE5C8713060F5E600F55081 /* Release configuration for PBXNativeTarget "messengerTests" */,
 			);
 			defaultConfigurationName = Release;
 		};
