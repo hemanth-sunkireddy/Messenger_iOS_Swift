@@ -29,6 +29,20 @@ struct ConversationView: View {
                             }
                         }
                     }
+                    switch chatViewModel.state {
+                    case .loading:
+                        HStack {
+                            ProgressView()
+                            Text("Gemma 4 is thinking...")
+                                .foregroundColor(.secondary)
+                        }
+                    case .error(let errorText):
+                        Text(errorText)
+                            .foregroundColor(.red)
+                    case .idle, .success:
+                        EmptyView()
+                    }
+
                     HStack {
                         TextField("Enter your message..", text: $messageInput)
                             .padding(10)

@@ -23,6 +23,26 @@ struct OllamaChatResponse: Decodable {
     let message: OllamaMessage
 }
 
+enum OllamaError: LocalizedError {
+    case encodingFailed(Error)
+    case networkFailed(Error)
+    case invalidResponse(statusCode: Int)
+    case decodingFailed(Error)
+
+    var errorDescription: String? {
+        switch self {
+        case .encodingFailed(let error):
+            return "Failed to encode request: \(error.localizedDescription)"
+        case .networkFailed(let error):
+            return "Network request failed: \(error.localizedDescription)"
+        case .invalidResponse(let statusCode):
+            return "Server responded with status code \(statusCode)."
+        case .decodingFailed(let error):
+            return "Failed to parse response: \(error.localizedDescription)"
+        }
+    }
+}
+
 class OllamaChatService: ChatServiceProtocol {
     private let logger = Logger(
         subsystem: Bundle.main.bundleIdentifier ?? "messenger",
@@ -59,13 +79,17 @@ class OllamaChatService: ChatServiceProtocol {
 
         do {
             request.httpBody = try JSONEncoder().encode(
-                OllamaChatRequest(model: model, messages: messages, stream: false)
+                OllamaChatRequest(
+                    model: model,
+                    messages: messages,
+                    stream: false
+                )
             )
         } catch {
             logger.error(
                 "Failed to encode request body: \(error.localizedDescription)"
             )
-            throw error
+            throw OllamaError.encodingFailed(error)
         }
 
         let data: Data
@@ -76,13 +100,19 @@ class OllamaChatService: ChatServiceProtocol {
             logger.error(
                 "Network request failed: \(error.localizedDescription)"
             )
-            throw error
+            throw OllamaError.networkFailed(error)
         }
 
         if let httpResponse = response as? HTTPURLResponse {
             logger.info(
                 "Ollama API Response Status Code: \(httpResponse.statusCode)"
             )
+
+            guard (200...299).contains(httpResponse.statusCode) else {
+                throw OllamaError.invalidResponse(
+                    statusCode: httpResponse.statusCode
+                )
+            }
         }
 
         let result: OllamaChatResponse
@@ -95,7 +125,7 @@ class OllamaChatService: ChatServiceProtocol {
             logger.error(
                 "Failed to decode Ollama response: \(error.localizedDescription)"
             )
-            throw error
+            throw OllamaError.decodingFailed(error)
         }
 
         logger.info("Ollama Response Message: \(result.message.content)")
