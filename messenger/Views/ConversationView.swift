@@ -35,8 +35,14 @@ struct ConversationView: View {
                             .background(Color(.systemGray6))
 
                         Button(action: {
-                            chatViewModel.sendMessage(messageInput: messageInput)
+                            let textToSend = messageInput
                             messageInput = ""
+
+                            Task {
+                                await chatViewModel.sendMessage(
+                                    messageInput: textToSend
+                                )
+                            }
                         }) {
                             Image(systemName: "paperplane.fill")
                                 .resizable()

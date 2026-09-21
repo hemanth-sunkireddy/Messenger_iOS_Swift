@@ -9,5 +9,5 @@ import Foundation
 
 protocol ChatServiceProtocol {
     func getInitialMessage() -> Message
-    func getBotResponse() -> Message
+    func getBotResponse(history: [Message]) async throws -> Message
 }

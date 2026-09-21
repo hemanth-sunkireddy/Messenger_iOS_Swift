@@ -46,6 +46,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CDE5C8683060F5E600F55081"
                BuildableName = "messengerTests.xctest"
+               BlueprintName = "messengerTests"
                ReferencedContainer = "container:messenger.xcodeproj">
             </BuildableReference>
          </TestableReference>

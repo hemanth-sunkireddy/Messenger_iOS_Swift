@@ -34,21 +34,6 @@
 			path = messenger;
 			sourceTree = "<group>";
 		};
-		CDDB02DF305C25A60026AC6E /* messengerTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = messengerTests;
-			sourceTree = "<group>";
-		};
-		CDE5C86A3060F5E600F55081 /* messengerTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = messengerTests;
-			sourceTree = "<group>";
-		};
-		CDFC60C8306040D70002B698 /* messengerTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = messengerTests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,10 +55,7 @@
 			children = (
 				CDE5C8633060F4C700F55081 /* messenger.xctestplan */,
 				CDDB02CF305C25A50026AC6E /* messenger */,
-				CDDB02DF305C25A60026AC6E /* messengerTests */,
 				CDDB02F7305C29C80026AC6E /* README.md */,
-				CDFC60C8306040D70002B698 /* messengerTests */,
-				CDE5C86A3060F5E600F55081 /* messengerTests */,
 				CDDB02CE305C25A50026AC6E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -120,9 +102,6 @@
 			);
 			dependencies = (
 				CDE5C86E3060F5E600F55081 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				CDE5C86A3060F5E600F55081 /* messengerTests */,
 			);
 			name = messengerTests;
 			productName = messengerTests;
