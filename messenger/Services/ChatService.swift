@@ -66,12 +66,24 @@ class OllamaChatService: ChatServiceProtocol {
     }
 
     func getBotResponse(history: [Message]) async throws -> Message {
-        let messages = history.map {
+        let sortedHistory = history.sorted { $0.createdAt < $1.createdAt }
+
+        var apiMessages: [OllamaMessage] = [
+            OllamaMessage(
+                role: "system",
+                content:
+                    "You are a helpful assistant. Pay close attention to the user's most recent message and answer it directly."
+            )
+        ]
+
+        let mappedHistory = sortedHistory.map {
             OllamaMessage(
                 role: $0.sender == .assistant ? "assistant" : "user",
                 content: $0.text
             )
         }
+
+        apiMessages.append(contentsOf: mappedHistory)
 
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -81,7 +93,7 @@ class OllamaChatService: ChatServiceProtocol {
             request.httpBody = try JSONEncoder().encode(
                 OllamaChatRequest(
                     model: model,
-                    messages: messages,
+                    messages: apiMessages,
                     stream: false
                 )
             )

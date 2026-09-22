@@ -50,6 +50,13 @@ class ConversationViewModel {
     }
 
     func sendMessage(messageInput: String) async {
+        guard state == .idle || state == .success else {
+            logger.debug(
+                "State is neither idle nor success. Current state: \(String(describing: self.state)). Message sending blocked."
+            )
+            return
+        }
+
         let trimmed = messageInput.trimmingCharacters(
             in: .whitespacesAndNewlines
         )
@@ -69,17 +76,20 @@ class ConversationViewModel {
         )
 
         conversation.addMessage(message: userMsg)
+        conversation.lastUpdated = Date()
         saveMessageToLocalStorage(userMsg)
 
         state = .loading
 
         do {
             logger.info("Requesting bot response from chat service")
+
             let botMsg = try await chatService.getBotResponse(
-                history: conversation.messages
+                history: conversation.sortedByDate()
             )
 
             conversation.addMessage(message: botMsg)
+            conversation.lastUpdated = Date()
             saveMessageToLocalStorage(botMsg)
 
             state = .success
