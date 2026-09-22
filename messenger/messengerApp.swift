@@ -5,6 +5,7 @@
 //  Created by Hemanth Kumar Reddy on 17/09/26.
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -13,5 +14,6 @@ struct messengerApp: App {
         WindowGroup {
             ConversationView()
         }
+        .modelContainer(for: [Conversation.self, Message.self])
     }
 }

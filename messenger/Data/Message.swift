@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import SwiftData
 
-enum Sender {
+enum Sender: String, Codable {
     case user
     case assistant
 }
 
-enum Status {
+enum Status: String, Codable {
     case sending
     case sent
     case failed
@@ -22,21 +23,49 @@ enum ConversationError: Error {
     case messageNotFound
 }
 
-struct Message: Identifiable, Equatable, Hashable {
-    let id: UUID
+@Model
+final class Message: Identifiable, Equatable {
+    @Attribute(.unique) var id: UUID
     var text: String
-    let sender: Sender
-    let createdAt: Date
+    var sender: Sender
+    var createdAt: Date
     var deliveryStatus: Status
+
+    init(
+        id: UUID = UUID(),
+        text: String,
+        sender: Sender,
+        createdAt: Date = Date(),
+        deliveryStatus: Status = .sent
+    ) {
+        self.id = id
+        self.text = text
+        self.sender = sender
+        self.createdAt = createdAt
+        self.deliveryStatus = deliveryStatus
+    }
 }
 
-struct Conversation: Hashable {
-    let id: UUID
+@Model
+final class Conversation: Identifiable {
+    @Attribute(.unique) var id: UUID
     var title: String
     var messages: [Message]
     var lastUpdated: Date
 
-    mutating func addMessage(message: Message) {
+    init(
+        id: UUID = UUID(),
+        title: String = "New Chat",
+        messages: [Message] = [],
+        lastUpdated: Date = Date()
+    ) {
+        self.id = id
+        self.title = title
+        self.messages = messages
+        self.lastUpdated = lastUpdated
+    }
+
+    func addMessage(message: Message) {
         messages.append(message)
     }
 
@@ -45,9 +74,7 @@ struct Conversation: Hashable {
     }
 
     func filter(by sender: Sender) -> [Message] {
-        return messages.filter { message in
-            return message.sender == sender
-        }
+        return messages.filter { $0.sender == sender }
     }
 
     func messageCount() -> Int {
@@ -70,9 +97,7 @@ struct Conversation: Hashable {
     }
 
     func count(by status: Status) -> Int {
-        return messages.filter { message in
-            return message.deliveryStatus == status
-        }.count
+        return messages.filter { $0.deliveryStatus == status }.count
     }
 
     func formatMessages(transform: (Message) -> String) -> [String] {
